@@ -74,6 +74,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 --------------------------------------------------------------------------------------------------------------------------------
                                                         PROJECT START
 
+# STEP 1
 In terminal change directory to (cd Desktop)
 -> npx create-react-app youtube-clone
+
+# STEP 2
+
+Setting up tailwind
+
+# STEP 3
+Create all components as per requirements
+
 
