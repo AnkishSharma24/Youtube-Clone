@@ -1,6 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = ()=> {
+
+    const isMenuOpen = useSelector(store => store.app.isMenuOpen)
+
+    // Early return, if below is true then the code will not go down
+    if(!isMenuOpen) return null;
+
     return (
 
         <div className="shadow-lg p-3 w-[200px]">
