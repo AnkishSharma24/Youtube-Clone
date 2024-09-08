@@ -2,6 +2,7 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { toggleMenu } from "../utils/appSlice"
 
+
 const Head = ()=>{
 
         const dispatch = useDispatch()
@@ -16,7 +17,7 @@ const Head = ()=>{
              <img 
              onClick={toggleMenuHandler}
              className="h-10 w-10 ml-2 mt-3 cursor-pointer"  src="https://cpwebassets.codepen.io/assets/packs/menuicon-c2b6b74a595ea5032ab0a2cfe69a4b11.svg" alt="hamburger-logo"></img>
-             <img className="h-[70px] w-[150px] ml-2 "  src="https://static.vecteezy.com/system/resources/previews/016/629/896/non_2x/youtube-logo-on-black-background-free-vector.jpg" alt="youtube-logo"></img>
+            <a href="http://localhost:3000/"><img className="h-[70px] w-[150px] ml-2 "  src="https://static.vecteezy.com/system/resources/previews/016/629/896/non_2x/youtube-logo-on-black-background-free-vector.jpg" alt="youtube-logo"></img></a> 
         </div>
 
         <div className="mt-6 p-2">
