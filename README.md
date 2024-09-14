@@ -83,6 +83,37 @@ In terminal change directory to (cd Desktop)
 Setting up tailwind
 
 # STEP 3
-Create all components as per requirements
+Create all components as per requirements.
+
+# STEP 4
+Installing Redux toolkit for Sidebar collapse and emerge.
+-> npm install @reduxjs/toolkit
+-> npm install react-redux
+
+# STEP 5
 
 
+# STEP
+
+HIGHER ORDER FUNCTION
+
+Takes a function and returns a function. Mainly used for slight modification.
+
+Example -> here Ad video card is higher order function.
+export const AdVideoCard = ({info})=>{
+
+    return(
+        <div className=" border-[5px] border-red-600 rounded-lg">     
+        <VideoCard info ={info}/>
+      <h3>This Ad is sponsored by Apple🍎</h3>
+        </div>
+    )}
+
+
+# STEP
+
+Debouncing - Debouncing is a technique in programming that helps improve the performance of web applications by controlling the frequency at which time-consuming tasks are triggered. If a task is triggered too often—like when a user types quickly or rapidly clicks a button—it can lead to performance issues. 
+
+Performance is improved
+typing slow (diff between key strokes)  = 200ms
+typing fast (diff between key strokes)  = 30ms (does not require suggestions i.e. API calls not required for suggestions)
