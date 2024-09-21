@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { toggleMenu } from "../utils/appSlice"
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 
 const Head = ()=>{
@@ -10,10 +11,15 @@ const Head = ()=>{
 
         const [suggestions,setSuggestions]= useState([]);
         const [showSuggestions, setShowSuggestions] = useState(false);
+        const searchCache = useSelector(store => store.search);
 
         useEffect(() => {
             const timer = setTimeout(() => {
-                if (searchQuery) {
+                    if (searchCache[searchQuery]){
+                        setSuggestions(searchCache[searchQuery])
+                    }
+
+                else {
                     getSearchSuggestions();
                 }
             }, 200);
@@ -30,6 +36,10 @@ const Head = ()=>{
             const json = await data.json();
             setSuggestions(json[1])
             console.log(json)
+
+            dispatch(
+                cacheResults(
+                    {[searchQuery]: json[1],}))
         }
 
     const toggleMenuHandler = ()=>{
@@ -45,7 +55,7 @@ const Head = ()=>{
              <img 
              onClick={toggleMenuHandler}
              className="h-10 w-10 ml-2 mt-3 cursor-pointer rounded-lg"  src="https://cpwebassets.codepen.io/assets/packs/menuicon-c2b6b74a595ea5032ab0a2cfe69a4b11.svg" alt="hamburger-logo"></img>
-            <a href="http://localhost:3000/"><img className="h-[70px] w-[150px] ml-2 "  src="https://static.vecteezy.com/system/resources/previews/016/629/896/non_2x/youtube-logo-on-black-background-free-vector.jpg" alt="youtube-logo"></img></a> 
+            <a href="http://localhost:3000/"><img className="h-[70px] w-[150px] ml-2 rounded-[30%] "  src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-650-80.jpg.webp" alt="youtube-logo"></img></a> 
         </div>
         <div >
            <div className="mt-6 p-2">

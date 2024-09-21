@@ -114,6 +114,50 @@ export const AdVideoCard = ({info})=>{
 
 Debouncing - Debouncing is a technique in programming that helps improve the performance of web applications by controlling the frequency at which time-consuming tasks are triggered. If a task is triggered too often—like when a user types quickly or rapidly clicks a button—it can lead to performance issues. 
 
+LINK - https://www.geeksforgeeks.org/debouncing-in-javascript/#:~:text=Debouncing%20is%20a%20technique%20in,can%20lead%20to%20performance%20issues.
+
 Performance is improved
 typing slow (diff between key strokes)  = 200ms
 typing fast (diff between key strokes)  = 30ms (does not require suggestions i.e. API calls not required for suggestions)
+
+
+# STEP
+ 
+ Using redus as a cache to save the above made API calls 
+
+ Cache:
+
+ time complexity to find in an array O(n)              [i, ip, iph, ipho, iphon, iphone]
+ time complexity to find in an object is O(1)           
+   {  i:
+      ip:
+      iph:
+      ipho:
+   } 
+
+Created searchSlice.js component and aadded cache data
+
+ dispatch(
+                cacheResults(
+                    {[searchQuery]: json[1],}))
+        }
+and save it so that our app does not need to make API calls again and again for the same results. Thus, improving performance.
+
+# STEP
+
+Making n level nesting comments section
+
+Use recursions to create more comments
+const CommentList =({comments}) =>{
+    // do not use index as key while using map
+    return (comments.map((comment, index)=> (
+        <div>
+        <Comment key={index} data={comment}/>
+          <div className="pl-5 border-l-2 border-gray-400">
+            <CommentList comments={comment.replies} />
+           </div>
+        </div>
+   ) )
+)}
+
+NOTE: above is a example of n level nesting
